@@ -35,7 +35,7 @@ const Navbar = () => {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" className={classes.link}>
-              Giphy App
+              Google Books Search
             </Link>
           </Typography>
           <Link to="/" className={classes.link}>
