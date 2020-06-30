@@ -3,7 +3,7 @@ const axios = require('axios')
 const { Book } = require('../models')
 
 router.get('/googlebooks/:search', (req, res) => {
- axios.get(`http://api.giphy.com/v1/books/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.params.search}&rating=g&limit=20`)
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.GOOGLE_BOOKS_API_KEY}`)
   .then(({ data }) => {
    Book.find()
     .then(books => {
