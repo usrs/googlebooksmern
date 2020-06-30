@@ -34,7 +34,7 @@ const Home = () => {
 
   bookState.handleSearchBook = event => {
     event.preventDefault()
-    axios.get(`/api/giphy/${bookState.search}`)
+    axios.get(`/api/googlebooks/${bookState.search}`)
       .then(({ data }) => {
         console.log(data)
         setBookState({ ...bookState, books: data })
@@ -62,7 +62,7 @@ const Home = () => {
     <>
       <form onSubmit={bookState.handleSearchBook}>
         <TextField
-          label="Search Giphy"
+          label="Search Google Books"
           name="search"
           value={bookState.search}
           onChange={bookState.handleInputChange} />
