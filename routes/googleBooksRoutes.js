@@ -3,11 +3,11 @@ const axios = require('axios')
 const { Book } = require('../models')
 
 router.get('/googlebooks/:search', (req, res) => {
-  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${process.env.GOOGLE_BOOKS_API_KEY}`)
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.params.search}&printType=books&maxResults=5&key=${process.env.GOOGLE_BOOKS_API_KEY}`)
   .then(({ data }) => {
    Book.find()
     .then(books => {
-     const booksFiltered = data.data.filter(book => {
+     const booksFiltered = data.items.filter(book => {
       let keep = true
       books.forEach(saved => {
        if (saved.bookId === book.id) {
